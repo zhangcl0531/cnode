@@ -1,8 +1,10 @@
 <template>
   <div id="app">
      <Header></Header>
-     <div class="main">
-        <router-view name="main"></router-view>
+     <div class="main clearfix">
+       
+       <router-view name="main"></router-view>
+       <router-view name="slidebar"></router-view>
      </div>
      
   </div>
@@ -26,5 +28,14 @@ export default {
       margin: 0;
       background-color: #e1e1e1;
     }
+    .main {
+        margin: 15px auto;
+        max-width: 1400px;
+    }
+    .clearfix::after{
+    content:'';
+    display:block;
+    clear:both;
+}
 
 </style>

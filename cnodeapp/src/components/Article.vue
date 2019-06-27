@@ -6,7 +6,7 @@
         </div>
 
         <div v-else>
-            <div class="main">
+            <div class="">
                 <div class="topic_header">
                     
                     <div class="topic_title">
@@ -28,10 +28,14 @@
                 <div class="replies">
                     <div class="topbar">{{post.replies.length}} 回复</div>
                     <div v-for="(item, index) in post.replies" :key="index" class="replies_content_all">
-                        <a href="">
+                        <router-link :to="{name:'userinfo',params:{name:item.author.loginname}}">
                             <img :src="item.author.avatar_url" :title="item.author.loginname">
-                        </a>
-                        <span class="replies_userinfo">{{item.author.loginname}}</span>
+                        </router-link>
+                            
+                        <router-link :to="{name:'userinfo',params:{name:item.author.loginname}}">
+                            <span class="replies_userinfo">{{item.author.loginname}}</span>
+                        </router-link>
+                        
                         <span class="reply_time">{{index + 1}}楼 •{{item.create_at | formatDate}}</span>
                         <span v-if="post.author.loginname == item.author.loginname" class="auth">作者</span>
                         <i v-if="item.ups.length > 0" class="iconfont icon-zan"> {{item.ups.length}}</i>
@@ -80,12 +84,12 @@ export default {
 
 <style>
     @import url('../assets/markdown.css');
-    @import url('https://at.alicdn.com/t/font_1263352_81379bo065y.css');
-    .main{
-        width: 90%;
-        margin: 15px auto;
-        max-width: 1400px;
+    @import url('https://at.alicdn.com/t/font_1263352_wcqguki3uy.css');
+    .article {
+        float: left;
+        width:calc(75%);
     }
+
     .topic_header {
         background-color: #fff;
         padding: 10px;
@@ -184,10 +188,13 @@ export default {
        vertical-align: -0.15em;
        fill: currentColor;
        overflow: hidden;
-    }
-    .icon-zan {
+  }
+.icon-zan {
         font-size: 14px;
         color: #666;
         float:right
-    }
+  }
+  a{
+      text-decoration: none
+  }
 </style>

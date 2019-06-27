@@ -19,9 +19,12 @@
                 
                 <li v-for="(post, index) in posts" :key="index">
                     <!-- 头像 -->
-                    <a href="user_avatar pull-left">
-                        <img :src="post.author.avatar_url" :title="post.author.loginname">
-                    </a>
+                    <router-link :to="{name:'userinfo',params:{name:post.author.loginname}}">
+                        <a href="user_avatar pull-left">
+                          <img :src="post.author.avatar_url" :title="post.author.loginname">
+                        </a>
+                    </router-link>
+                    
                     <!-- 回复/浏览 -->
                     <span class="allcount">
                         <span class="reply_count">{{post.reply_count}}</span>
@@ -33,7 +36,7 @@
                         {{post | tabFormatter }}
                     </span>
                     <!-- 标题 -->
-                    <router-link :to="{name:'post_content',params:{id:post.id}}">
+                    <router-link :to="{name:'post_content',params:{id:post.id,name:post.author.loginname}}">
                       <span>
                         <a href="">{{post.title }}</a>
                       </span>
