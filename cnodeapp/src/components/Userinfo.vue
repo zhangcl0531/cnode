@@ -15,7 +15,7 @@
                 <div class="integral">{{info.score}} 积分</div>
                 <div class="collect_topic" v-if="topic.length > 0">{{topic.length}}个话题收藏</div>
                 <div class="github" v-if="info.githubUsername">
-                    <i class="iconfont icon-github"></i> @{{info.githubUsername}}</a>
+                    <i class="iconfont icon-github"></i> @{{info.githubUsername}}
                 </div>
                 <div class="create_time">注册时间 {{info.create_at | formatDate}}</div>
             </div>
@@ -138,9 +138,7 @@ export default {
     border-radius:3px;
     margin: 5px;
 }
-.info {
-    
-}
+
 .integral {
     font-size: 12px;
     color: black
