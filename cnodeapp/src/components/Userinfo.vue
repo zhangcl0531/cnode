@@ -100,6 +100,14 @@ export default {
         this.getTopic()
         this.isLoading = false
     },
+    watch: {
+        '$route'(to,from){
+            this.isLoading = true
+            this.getDate()
+            this.getTopic()
+            this.isLoading = false
+        }
+    },
 }
 </script>
 

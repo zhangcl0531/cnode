@@ -78,6 +78,13 @@ export default {
         this.getArticleData()
         this.isLoading = false
     },
+    watch: {
+        '$route'(to,from){
+            this.isLoading = true
+            this.getArticleData()
+            this.isLoading = false
+        }
+    },
 
 }
 </script>

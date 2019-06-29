@@ -68,6 +68,11 @@ export default {
     beforeMount() {
         this.getDate()
     },
+    watch: {
+        '$route'(to,from){
+            this.getDate()
+        }
+    },
 }
 </script>
 
